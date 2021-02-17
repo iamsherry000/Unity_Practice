@@ -12,9 +12,9 @@ public class Test1: MonoBehaviour
 
         // Set some positions
         Vector3[] positions = new Vector3[3];
-        positions[0] = new Vector3(-2.0f, -2.0f, 0.0f);
-        positions[1] = new Vector3(0.0f, 2.0f, 0.0f);
-        positions[2] = new Vector3(2.0f, -2.0f, 0.0f);
+        positions[0] = new Vector3(-0.5f,  0.3f, -0.6f);
+        positions[1] = new Vector3( 0.0f,  0.8f,  0.1f);
+        positions[2] = new Vector3( 0.5f,  0.3f, -0.6f);
         lr.positionCount = positions.Length;
         lr.SetPositions(positions);
     }
