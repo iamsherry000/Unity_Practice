@@ -4,11 +4,10 @@ using UnityEngine;
 public class FollowCam : MonoBehaviour
 {
 
-
     void Update()
     {
         Vector3 temp = Input.mousePosition;
-        temp.z = 10f;
+        temp.z = 3f;
         this.transform.position = Camera.main.ScreenToWorldPoint(temp);
     }
 }

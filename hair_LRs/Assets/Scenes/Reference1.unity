@@ -358,10 +358,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5162499600511585475, guid: 9f825d70c9e1bd94c8a3b2265c2bc119,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 7674811292218346888, guid: 9f825d70c9e1bd94c8a3b2265c2bc119,
         type: 3}
       propertyPath: m_Name
       value: ROPE
       objectReference: {fileID: 0}
+    - target: {fileID: 8856846958421212661, guid: 9f825d70c9e1bd94c8a3b2265c2bc119,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f825d70c9e1bd94c8a3b2265c2bc119, type: 3}
