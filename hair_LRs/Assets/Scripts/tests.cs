@@ -1,42 +1,73 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
-public class tests: MonoBehaviour
+[RequireComponent(typeof(LineRenderer))]
+public class tests : MonoBehaviour
 {
-    public GameObject hair; //the object that i create
-    public Transform a,b;
-    void Awake()
+    public GameObject hair, hair1, hair2, hair3; //the object that I create
+    public Transform a, b;
+    public List<GameObject> lrpmatrix = new List<GameObject>();
+    public List<GameObject> hairmatrix = new List<GameObject>();
+    public List<Rigidbody> rgmatrix = new List<Rigidbody>();
+
+
+    void AB()
     {
-        hair = new GameObject("hair");
-        hair.transform.position = new Vector3(0f, 0f, 0f);
-        //hair.transform.rotation = new Vector3(0f, 0f, 0f);
-        hair.transform.localScale = new Vector3(0.5f, 1f, 0.5f);
-        //Random.InitState(System.Environment.TickCount);
-
-        for (int i = 0; i < 1 ; i++)
+        for (int i = 0; i < 3; i++)
         {
-            GameObject hair2 = new GameObject("hair2" + i.ToString());
-            hair2.transform.parent = hair.transform;
+            GameObject lrp = new GameObject("LRP");
+            lrp.transform.localScale = new Vector3(2f, 1f, 2f);
 
-            // add between 1 to 8 "bottom" children that report to the above "middle"
-            
-            
             GameObject a = new GameObject("a");
-            a.transform.parent = hair2.transform;
-            GameObject b = new GameObject("b");
-            b.transform.parent = hair2.transform;
+            a.transform.parent = lrp.transform;
+            a.transform.position = new Vector3(0f, 1f, 0f);
 
+            GameObject b = new GameObject("b");
+            b.transform.parent = lrp.transform;
+
+            lrpmatrix.Add(lrp);
         }
     }
 
+
+    void Hairscript()
+    {
+        for(int i = 0; i < 5; i++)
+        {
+            hairmatrix[i] = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            hairmatrix[i].AddComponent<Rigidbody>();
+            hairmatrix[i].AddComponent<CapsuleCollider>();
+            rgmatrix[i] = hairmatrix[i].AddComponent<Rigidbody>();
+            rgmatrix[i].isKinematic = true;
+            hairmatrix[i] = new GameObject("hair" + i.ToString());
+            
+            if (i > 0)
+            {
+                hairmatrix[i + 1].transform.parent = hairmatrix[i].transform;
+                hairmatrix[i].transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+        }
+        hairmatrix[0].transform.position = new Vector3(0f, 0f, 0f);
+        hairmatrix[0].transform.localScale = new Vector3(0.5f, 1f, 0.5f);
+        hairmatrix[1].transform.position = new Vector3(0f, -2f, 0f);
+        hairmatrix[2].transform.position = new Vector3(0f, -2f, 0f);
+    }
+
+    void matrix()
+    {
+        AB();
+        lrpmatrix[0].transform.parent = hair.transform;
+        lrpmatrix[1].transform.parent = hair1.transform;
+        lrpmatrix[2].transform.parent = hair2.transform;
+    }
+
+
     void Start()
     {
-        // how many children does top have?
-        GameObject hair = GameObject.Find("hair");
-        Debug.Log(hair.name + " has " + hair.transform.childCount + " children");
-
-        // pick a random middle group and pick a member of its children
-        hair = GameObject.Find("hair2" + Random.Range(0, hair.transform.childCount));
-        Debug.Log(hair.name + " has " + hair.transform.childCount + " children");
+        Hairscript();
+        matrix();
+        //GameObject hair = GameObject.Find("hair");
+        
     }
     void Update()
     {
