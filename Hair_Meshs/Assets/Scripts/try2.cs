@@ -9,11 +9,11 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class try2 : MonoBehaviour
 {
-    Vector3[] vrs = new Vector3[6];
+    Vector3[] vrs = new Vector3[4];
     int[] trs = new int[6];
     Vector2[] uvs;
     Mesh mesh;
-    int sp = 0;
+    int fx = 2, fy = 0;
 
     void Start()
     {
@@ -24,12 +24,10 @@ public class try2 : MonoBehaviour
 
     void step1() 
     {
-        vrs[0] = new Vector3(sp, 0, 0);
-        vrs[1] = new Vector3(sp, 1, 0);
-        vrs[2] = new Vector3(sp+1, 0, 0);
-        vrs[3] = new Vector3(sp+1, 0, 0);
-        vrs[4] = new Vector3(sp, 1, 0);
-        vrs[5] = new Vector3(sp+1, 1, 0);
+        vrs[0] = new Vector3(fx, fy, 0);
+        vrs[1] = new Vector3(fx, fy+1, 0);
+        vrs[2] = new Vector3(fx+1, fy, 0);
+        vrs[3] = new Vector3(fx+1, fy+1, 0);
     }
     void step2()
     {
@@ -37,7 +35,7 @@ public class try2 : MonoBehaviour
         mesh.name = "mmmm";
         mesh.vertices = vrs;
         trs[0] = 0; trs[1] = 1; trs[2] = 2;
-        trs[3] = 3; trs[4] = 4; trs[5] = 5;
+        trs[3] = 2; trs[4] = 1; trs[5] = 3;
         mesh.triangles = trs;
     }
     void step3()
@@ -49,8 +47,7 @@ public class try2 : MonoBehaviour
         Gizmos.color = Color.black;
         for (int i = 0; i < vrs.Length; i++)
         {
-            Gizmos.DrawSphere(vrs[i], 0.1f);
-            
+            Gizmos.DrawSphere(vrs[i], 0.1f);   
         }
     }
 
