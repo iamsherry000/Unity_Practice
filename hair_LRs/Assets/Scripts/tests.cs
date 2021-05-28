@@ -4,11 +4,9 @@ using System.Collections.Generic;
 [RequireComponent(typeof(LineRenderer))]
 public class tests : MonoBehaviour
 {
-    public GameObject hair, hair1, hair2, hair3; //the object that I create
     public Transform a, b;
     public List<GameObject> lrpmatrix = new List<GameObject>();
     public List<GameObject> hairmatrix = new List<GameObject>();
-    public List<Rigidbody> rgmatrix = new List<Rigidbody>();
 
 
     void AB()
@@ -32,18 +30,21 @@ public class tests : MonoBehaviour
 
     void Hairscript()
     {
-        for(int i = 0; i < 5; i++)
+        for (int i = 0; i < 3; i++)
         {
-            hairmatrix[i] = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-            hairmatrix[i].AddComponent<Rigidbody>();
-            hairmatrix[i].AddComponent<CapsuleCollider>();
-            rgmatrix[i] = hairmatrix[i].AddComponent<Rigidbody>();
-            rgmatrix[i].isKinematic = true;
+            GameObject capsule = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+            hairmatrix.Add(capsule);
+            Rigidbody RG;
+            RG = hairmatrix[i].AddComponent<Rigidbody>();
+            RG.isKinematic = true;
             hairmatrix[i] = new GameObject("hair" + i.ToString());
             
-            if (i > 0)
+        }
+        for (int i = 0; i < hairmatrix.Count; i++) 
+        {
+            if (i > 0 && i < hairmatrix.Count)
             {
-                hairmatrix[i + 1].transform.parent = hairmatrix[i].transform;
+                hairmatrix[i].transform.parent = hairmatrix[i-1].transform;
                 hairmatrix[i].transform.localScale = new Vector3(1f, 1f, 1f);
             }
         }
@@ -56,9 +57,10 @@ public class tests : MonoBehaviour
     void matrix()
     {
         AB();
-        lrpmatrix[0].transform.parent = hair.transform;
-        lrpmatrix[1].transform.parent = hair1.transform;
-        lrpmatrix[2].transform.parent = hair2.transform;
+        for (int i = 0; i < 3; i++)
+        {
+            lrpmatrix[i].transform.parent = hairmatrix[i].transform;
+        }
     }
 
 

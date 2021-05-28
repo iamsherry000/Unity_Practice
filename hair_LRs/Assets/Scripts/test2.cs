@@ -8,7 +8,7 @@ public class test2 : MonoBehaviour
     public Transform a, b;
     public LineRenderer lr2;
     public List<GameObject> lrpmatrix = new List<GameObject>();
-
+    Rigidbody RG;
     void AB()
     {
         for (int i = 0; i < 3; i++)
@@ -31,9 +31,8 @@ public class test2 : MonoBehaviour
     void Hairscript()
     {
         hair = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        hair.AddComponent<Rigidbody>();
         hair.AddComponent<CapsuleCollider>();
-        Rigidbody RG = hair.AddComponent<Rigidbody>();
+        RG = hair.AddComponent<Rigidbody>();
         RG.isKinematic = true;
         hair = new GameObject("hair");
         hair.transform.position = new Vector3(0f, 0f, 0f);
@@ -44,19 +43,17 @@ public class test2 : MonoBehaviour
 
         //solution2
         hair1 = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        hair1.AddComponent<Rigidbody>();
         hair1.AddComponent<CapsuleCollider>();
-        Rigidbody RG1 = hair1.AddComponent<Rigidbody>();
-        RG1.isKinematic = true;
+        RG = hair1.AddComponent<Rigidbody>();
+        RG.isKinematic = true;
         hair1 = new GameObject("hair1");
         hair1.transform.parent = hair.transform;
         hair1.transform.position = new Vector3(0f, -2f, 0f);
 
         hair2 = GameObject.CreatePrimitive(PrimitiveType.Capsule);
-        hair2.AddComponent<Rigidbody>();
         hair2.AddComponent<CapsuleCollider>();
-        Rigidbody RG2 = hair.AddComponent<Rigidbody>();
-        if (GetComponent<Rigidbody>()) RG2.isKinematic = true;
+        RG = hair.AddComponent<Rigidbody>();
+        RG.isKinematic = true;
         hair2 = new GameObject("hair2");
         hair2.transform.parent = hair1.transform;
         hair2.transform.position = new Vector3(0f, -2f, 0f);
