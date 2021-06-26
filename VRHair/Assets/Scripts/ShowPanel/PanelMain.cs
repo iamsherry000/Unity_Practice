@@ -4,8 +4,30 @@ using UnityEngine;
 
 public class PanelMain : MonoBehaviour
 {
-    public void PaintClick() {
+    public static int icon=0;
+    public void PaintIconClick() {
+        icon = 1;
         GameObject.Find("RightHand").GetComponent<drawer>().enabled = true;
         UIManager.Instance.ShowPanel("RPanel_Paint");
+    }
+    public void ColorIconClick()
+    {
+        icon = 2;
+    }
+    public void ClearIconClick()
+    {
+        icon = 3;
+    }
+    public void EraserIconClick()
+    {
+        icon = 4;
+    }
+    public void UndoIconClick()
+    {
+        icon = 5;
+    }
+    public void RedoIconClick()
+    {
+        icon = 6;
     }
 }

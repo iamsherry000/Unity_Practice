@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Valve.VR.InteractionSystem;
-using UnityEngine;
+
+
 
 
 public class mUIElements : UIElement
 {
     public Hand currentHand;
+
     protected override void Awake()
     {
         base.Awake();
+        //paint= GameObject.Find("PaintIcon").GetComponents<Button>();
     }
 
     protected override void OnHandHoverBegin(Hand currentHand)
@@ -41,6 +44,6 @@ public class mUIElements : UIElement
 
     public void OnButtonCilckAdd()
     {
-
+        
     }
 }
