@@ -7,7 +7,6 @@ public class PanelMain : MonoBehaviour
     public static int icon=0;
     public void PaintIconClick() {
         icon = 1;
-        GameObject.Find("RightHand").GetComponent<drawer>().enabled = true;
         UIManager.Instance.ShowPanel("RPanel_Paint");
     }
     public void ColorIconClick()

@@ -51,15 +51,16 @@ public class drawer : MonoBehaviour
     void Update()
     {
         controlWidth();
+        controlMesh();
         if (down == 0) //沒按下
         {
-            if (TriggerClick.GetStateDown(Pose.inputSource))
+            if (TriggerClick.GetStateDown(Pose.inputSource) && PanelMain.icon ==1)
             {
                 OldPos = NewPos = attachPoint.transform.position;
                 down = 1;
             }
         }
-        if (down == 1)
+        if (down == 1) //按下
         {
             NewPos = attachPoint.transform.position;
             float dist = Vector3.Distance(OldPos, NewPos);
@@ -106,70 +107,29 @@ public class drawer : MonoBehaviour
 
     }
 
-    /*public void controlMesh()//髮片控制 clear undo redo color 
+    public void controlMesh()//髮片控制 clear undo redo color 
     {
         CreatHair = Hairmodel.GetComponent<MeshGenerate>();
+        if(PanelMain.icon == 1)
+        {
+            //GameObject.Find("RightHand").GetComponent<drawer>().enabled = true;
+            Debug.Log(PanelMain.icon);
+        }
         if (PanelMain.icon == 3) // Clear button 被按下了
         {
-            if (chickUndo == 1)
-            {
-
-                CreatHair.undoMeshUpdate(count, CopyCount);
-                tempCount = count;
-            }
-            CreatHair.ClearMesh();//清除備份
-            count = 0;
-            clearMesh = 0;
-            chickUndo = 0;
-            Debug.Log("bug");//....卡在判定裡
+            Debug.Log(PanelMain.icon);
         }
-        Debug.Log("QQ");
 
         if (PanelMain.icon == 5) // Undo 被按下
         {
-            chickUndo = 1;
-
-
-            if (clearMesh == 1 && chickUndo == 1)
-            {
-                count = tempCount;
-                clearMesh = 0;
-                CreatHair.undoMesh();
-                //chickUndo = 0;
-            }
-            else if (clearMesh == 1)
-            {
-                count = CopyCount;
-                clearMesh = 0;
-                CreatHair.undoMesh();
-            }
-            else if (count > 0) count--;
-
-            if (count < CopyCount && count != 0) chickUndo = 1;
-            else chickUndo = 0;
-
-            CreatHair.meshGenerate(count, width, UpdatePoint);
-
+            Debug.Log(PanelMain.icon);
         }
-        if (PanelMain.icon ==6 && chickUndo == 1) //Redo 被按下
+        if (PanelMain.icon ==6 ) //Redo 被按下
         {
-            if (count <= CopyCount) count++;
-            if (count == CopyCount) chickUndo = 0;
-            CreatHair.meshGenerate(count, width, UpdatePoint);
-
+            Debug.Log(PanelMain.icon);
         }
-
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            Vector3 RemovePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 30.0f));
-            CreatHair.RemoveMesh(RemovePos);
-        }
-
-        if (Input.GetKeyDown("3")) colorSelect = 1;
-        if (Input.GetKeyDown("4")) colorSelect = 2;
 
     }
-    */
+    
 
 }

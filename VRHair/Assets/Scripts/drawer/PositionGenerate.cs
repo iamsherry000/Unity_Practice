@@ -77,7 +77,6 @@ public class PositionGenerate : MonoBehaviour
                     Vector3 Vec1 = new Vector3((Vec.y) * j * w, (-Vec.x) * j * w, Vec.z * j);
                     Vector3 temp = new Vector3(Point[x].x + Vec1.x, Point[x].y + Vec1.y, Point[x].z + Vec1.z);
                     tempPoint.Add(temp);
-                    Debug.Log(x);
                 }
 
                 tempPoint.Add(GetLenPoint[i]);
@@ -88,7 +87,6 @@ public class PositionGenerate : MonoBehaviour
                     Vector3 Vec1 = new Vector3((-Vec.y) * j * w, (+Vec.x) * j * w, Vec.z * j);
                     Vector3 temp = new Vector3(Point[x].x + Vec1.x, Point[x].y + Vec1.y, Point[x].z + Vec1.z);
                     tempPoint.Add(temp);
-                    Debug.Log(x);
                 }
                 if (w < width) w += 0.1f;
 

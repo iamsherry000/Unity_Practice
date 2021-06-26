@@ -9,11 +9,12 @@ public class UIManager : Singleton<UIManager>
 
     public Dictionary<string, GameObject> m_PanelList = new Dictionary<string, GameObject>();
 
+
     private bool CheckCanvasRootIsNull()
     {
         if (m_CanvasRoot == null)
         {
-            Debug.LogError("m_CanvasRoot is Null, Please in your Canvas add UIRootHandler.cs");
+            //Debug.LogError("m_CanvasRoot is Null, Please in your Canvas add UIRootHandler.cs");
             return true;
         }
         else
@@ -34,7 +35,7 @@ public class UIManager : Singleton<UIManager>
 
         if (IsPanelLive(name))
         {
-            Debug.LogErrorFormat("[{0}] is Showing, close it first.", name);
+            //Debug.LogErrorFormat("[{0}] is Showing, close it first.", name);
             return null;
         }
 
