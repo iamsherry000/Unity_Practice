@@ -40,3 +40,25 @@ public class functions : MonoBehaviour
         }
     }
 }
+//ExistHair = GameObject.Find("HairModel" + (HairCounter - 1)); //找到相應的hairmodel名稱丟給 ExistHair GameObj
+//ListExistHair.Add(ExistHair);
+//u_Freq = 0;
+
+/*if (Input.GetKeyDown("u"))
+{
+    u_Freq = 1;
+    UndoObj = Instantiate(ListExistHair[ListExistHair.Count - 1]);
+    StackExistHair.Push(UndoObj);
+    UndoObj.SetActive(false);
+    Destroy(ListExistHair[ListExistHair.Count - 1]);
+    ListExistHair.RemoveAt(ListExistHair.Count - 1);
+}
+
+if(Input.GetKeyDown("r") && u_Freq == 1)
+{
+    GameObject RedoObj;
+    RedoObj = StackExistHair.Pop();
+    ListExistHair.Add(RedoObj);
+    RedoObj.SetActive(true);
+    if (StackExistHair.Count == 0) u_Freq = 0;
+} */
