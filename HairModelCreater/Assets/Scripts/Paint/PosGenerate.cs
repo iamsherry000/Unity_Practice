@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PosGenerate : MonoBehaviour
 {
-    public List<Vector3> GetPointPos = CreateHair2.PointPos; //拿CreateHair的PointPos來用
+    public List<Vector3> GetPointPos = CreateHair4.PointPos; //拿CreateHair的PointPos來用
 
     public void GetPosition(Vector3 OldPos,Vector3 NewPos, int Hairwidth)
     {

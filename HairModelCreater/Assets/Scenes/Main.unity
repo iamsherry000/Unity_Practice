@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 786672437}
   - component: {fileID: 786672436}
   - component: {fileID: 786672438}
+  - component: {fileID: 786672439}
+  - component: {fileID: 786672440}
   m_Layer: 0
   m_Name: paint
   m_TagString: Untagged
@@ -175,9 +177,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786672435}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 838d7ecc89818f14cbaaadf04a9f9f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HairModel: []
+  MeshCreater: {fileID: 0}
+  PosCreater: {fileID: 0}
+  ListExistHair: []
+--- !u!114 &786672439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786672435}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69234996f030e3340a3929d3c7d497b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HairModel: []
+  MeshCreater: {fileID: 0}
+  PosCreater: {fileID: 0}
+  ListExistHair: []
+--- !u!114 &786672440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786672435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6596829e9bf4c6340ade0160e8ef4e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   HairModel: []
